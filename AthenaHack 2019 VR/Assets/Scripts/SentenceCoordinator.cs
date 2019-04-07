@@ -18,7 +18,7 @@ public class SentenceCoordinator : MonoBehaviour
 	int currSent = 0;
 	
 	string[] childSentence = {
-		"This is tory 1 sentence 1",
+		"This is story 1 sentence 1",
 		"This is story 2 sentence 2"
 	};
 	
