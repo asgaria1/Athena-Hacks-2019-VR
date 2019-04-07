@@ -526,6 +526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1456357799}
+  - component: {fileID: 1456357800}
   m_Layer: 0
   m_Name: Sentence
   m_TagString: Untagged
@@ -548,6 +549,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1456357800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456357798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52405c4c9e6ddaa4d8bbbf5c2b1247cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeStage: 0
+  waitingSeconds: 20
+  timeLeft: 20
+  cloudSet: {fileID: 0}
+  sentTextObj: {fileID: 277622374}
 --- !u!1 &1541896150
 GameObject:
   m_ObjectHideFlags: 0

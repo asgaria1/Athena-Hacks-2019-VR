@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SentenceCoordinator : MonoBehaviour
 {
 	//0 = Toddler/Child, 1 = Young Adult, 2 = Adult, 3 = Old 
 	public int lifeStage = 0;
 	
-	public int waitingSeconds;
+	public float waitingSeconds = 20f;
+	public float timeLeft = 20f;
 	
 	public GameObject cloudSet;
+	public GameObject sentTextObj;
 	
-	int numberSentences = 5;
+	int numberSentences;
+	int currSent = 0;
 	
 	string[] childSentence = {
 		"This is tory 1 sentence 1",
@@ -48,14 +52,20 @@ public class SentenceCoordinator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int numSentences = allSentences[lifeStage].Length;
-		for (int i = 0; i < numSentences; i++) {
-			//wait as sentence words pass through
-			waiter(waitingSeconds);
-			//after 20 seconds total, should replace the text
-			ChangeWordClouds(lifeStage, i);
+		timeLeft -= Time.deltaTime;
+		if (timeLeft <= 0) {
+			//switch the sentence to the next sentence
+			Text tochange = sentTextObj.GetComponent<Text>();
+			tochange.text = allSentences[lifeStage][currSent];
+			ChangeWordClouds(lifeStage, currSent);
+			
+			currSent++;
+			if (currSent >= numberSentences) {
+				lifeStage++;
+				timeLeft = waitingSeconds; //reset the timer
+			}
 		}
-		lifeStage = lifeStage+1;
+		
     }
 	
 	IEnumerator waiter(int seconds) {
@@ -67,5 +77,6 @@ public class SentenceCoordinator : MonoBehaviour
 		string newStory = (stor+1).ToString();
 		newStory = newStory + (sent+1).ToString();
 		cloudSet.GetComponent<CloudTimer>().setStoryVal(newStory);
+		Debug.Log(newStory);
 	}
 }
