@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SentenceCoordinator : MonoBehaviour
 {
@@ -67,28 +68,39 @@ public class SentenceCoordinator : MonoBehaviour
 	void ChangeStuff() {
 		Debug.Log(lifeStage + " // " + currSent);
 		int numberSentences = allSentences[lifeStage].Length;
-        if (lifeStage < 3) {
-			//switch the sentence to the next sentence
-			TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
-			tochange.text = allSentences[lifeStage][currSent];
-			ChangeWordSet(lifeStage, currSent);
+        if (lifeStage < 3)
+        {
+            //switch the sentence to the next sentence
+            TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
+            tochange.text = allSentences[lifeStage][currSent];
+            ChangeWordSet(lifeStage, currSent);
 
-			currSent++;
-			if (currSent >= numberSentences)
-			{
-				lifeStage++;
-				timeLeft = waitingSeconds; //reset the timer
-				currSent = 0;
-			}
-		} else if (lifeStage == 3){
-			//remove all the dark clouds
-			for (int i = 0; i < darkClouds.Length; i++) {
-				darkClouds[i].SetActive(false);
-			}
-			TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
-			tochange.text = allSentences[lifeStage][currSent];
-			ChangeWordSet(lifeStage, currSent);
-			lifeStage++;
+            currSent++;
+            if (currSent >= numberSentences)
+            {
+                lifeStage++;
+                timeLeft = waitingSeconds; //reset the timer
+                currSent = 0;
+            }
+        }
+        else
+        { 
+            if (lifeStage == 3)       
+            {
+                //remove all the dark clouds
+                for (int i = 0; i < darkClouds.Length; i++)
+                {
+                    darkClouds[i].SetActive(false);
+                }
+                TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
+                tochange.text = allSentences[lifeStage][currSent];
+                ChangeWordSet(lifeStage, currSent);
+                lifeStage++;
+                SceneManager.LoadScene("AriScene");
+            }
+            
+                
+            
 		}
 		StartCoroutine(Timer());
 	}
