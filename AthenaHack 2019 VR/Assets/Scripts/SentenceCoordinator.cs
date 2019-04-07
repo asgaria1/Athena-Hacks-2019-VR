@@ -19,23 +19,27 @@ public class SentenceCoordinator : MonoBehaviour
 	int currSent = 0;
 	
 	string[] childSentence = {
-		"This is story 1 sentence 1",
-		"This is story 2 sentence 2"
+		"As a child you attend school. There, you surround yourself with _____.",
+		"Everyday after school you _____.",
+		"At home, your life consists of _____."
 	};
 	
 	string[] yaSentence = {
-		"This is story 2 sentence 1",
-		"This is story 2 sentence 2"
+		"In your developing years, you most often _____.",
+		"You decide to go to college. You pick _____ as your major.",
+		"Freshman year has come and gone. In your second year of college you _____.",
+		"After your four years at college you _____."
 	};
 	
 	string[] adultSentence = {
-		"This is story 3 sentence 1",
-		"This is story 3 sentence 2"
+		"Finally gaining more independence, you begin to _____ as an adolescent adult.",
+		"As a mature adult, you got into _____.",
+		"_____ enter(s) your life.",
+		"After a couple years at your job you _____."
 	};
 	
 	string[] oldSentence = {
-		"This is story 4 sentence 1",
-		"This is story 4 sentence 2"
+		"Many, many years later, after a long life, in your elderly years you decide to _____."
 	};
 
 	string[][] allSentences;
