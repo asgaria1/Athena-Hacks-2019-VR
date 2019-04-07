@@ -63,8 +63,8 @@ public class SentenceCoordinator : MonoBehaviour
     {
         numberSentences = allSentences[lifeStage].Length;
         timeLeft -= Time.deltaTime;
-		if (lifeStage < 3) {
-			if (timeLeft <= 0) {
+		if (timeLeft <= 0) {
+			if (lifeStage < 2) {
 				//switch the sentence to the next sentence
 				TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
 				tochange.text = allSentences[lifeStage][currSent];
@@ -77,23 +77,20 @@ public class SentenceCoordinator : MonoBehaviour
 					timeLeft = waitingSeconds; //reset the timer
 					currSent = 0;
 				}
+			} else if (lifeStage == 2){
+				//remove all the dark clouds
+				for (int i = 0; i < darkClouds.Length; i++) {
+					darkClouds[i].SetActive(false);
+				}
+				TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
+				tochange.text = allSentences[lifeStage][currSent];
+				ChangeWordSet(lifeStage, currSent);
+				lifeStage++;
 			}
-		} else if (lifeStage == 3){
-			//remove all the dark clouds
-			for (int i = 0; i < darkClouds.Length; i++) {
-				darkClouds[i].SetActive(false);
-			}
-			TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
-			tochange.text = allSentences[lifeStage][currSent];
-			ChangeWordSet(lifeStage, currSent);
 		}
+		
         
 
-    }
-
-    IEnumerator waiter(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
     }
 
     void ChangeWordSet(int stor, int sent)
@@ -103,5 +100,9 @@ public class SentenceCoordinator : MonoBehaviour
         cloudSet.GetComponent<CloudManagement>().ChangeWordClouds(stor, sent);
 
     }
+	
+	public void resetTime () {
+		timeLeft = -1f;
+	}
 }
 
