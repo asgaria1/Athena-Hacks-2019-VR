@@ -152,11 +152,10 @@ public class CloudTimer : MonoBehaviour
             "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT"};
         dict.Add("221", arrayboi221);
 
-        /*string[] arrayboi220 = { "word 1",
-            "word 2", "word 3", "word 4",
-            "word 5", "word 6", "word 7",
-            "word 8", "word 9" };
-        dict.Add("220", arrayboi220);*/
+        string[] arrayboi220 = { "EVERY MAJOR IS IMPORTANT",
+            "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT",
+            "EVERY MAJOR IS IMPORTANT" };
+        dict.Add("220", arrayboi220);
 
         string[] arrayboi231 = { "attend a hackathon",
             "get an internship", "meet new people", "add a minor or double major",
