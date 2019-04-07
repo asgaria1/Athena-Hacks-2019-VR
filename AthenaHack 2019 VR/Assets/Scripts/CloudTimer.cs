@@ -18,7 +18,7 @@ public class CloudTimer : MonoBehaviour
     [SerializeField]
     public float timeLeft = 5f;
 
-    private string wholesomeLevel;
+    public string wholesomeLevel;
     private string storyVal;
     private Dictionary<string, string[]> dict = new Dictionary<string, string[]>();
 
@@ -52,7 +52,7 @@ public class CloudTimer : MonoBehaviour
         //Gets word based on neg or pos since neg has 9 and pos has 21
         //different random ranges.
         //Then sets text to result
-        tochange.text = getWord(wholesomeLevel); 
+        tochange.text = GetWord(wholesomeLevel); 
     }
 
     // Update is called once per frame
@@ -65,9 +65,6 @@ public class CloudTimer : MonoBehaviour
             //deactivate, wait 1 second with coroutine then reactivate with new word
             cloud.SetActive(false);
             Invoke("DelayedActive", 1f);
-            
-
-
         }
 
 
@@ -78,15 +75,15 @@ public class CloudTimer : MonoBehaviour
         cloud.SetActive(true);
         timeLeft = 5f + buffer;
         Text tochange = c.GetComponent<Text>();
-        tochange.text = getWord(wholesomeLevel);
+        tochange.text = GetWord(wholesomeLevel);
     }
 
-    void getStoryVal( string annieVal)
+    void GetStoryVal( string annieVal)
     {
         storyVal = annieVal;
     }
 
-    string getWord( string wholesome)
+    string GetWord( string wholesome)
     {
         if (wholesomeLevel == "1") { return dict[storyVal][Random.Range(0, 20)]; }
         else { return dict[storyVal][Random.Range(0, 8)]; }
@@ -404,7 +401,6 @@ public class CloudTimer : MonoBehaviour
             "word 5", "word 6", "word 7",
             "word 8", "word 9" };
         dict.Add("450", arrayboi450);
-
     }
 	
 	public void setStoryVal( string annieVal)
