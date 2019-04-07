@@ -9,33 +9,38 @@ public class SentenceCoordinator : MonoBehaviour
     //0 = Toddler/Child, 1 = Young Adult, 2 = Adult, 3 = Old 
     public int lifeStage = 0;
 
-    public float waitingSeconds = 25f;
+    public float waitingSeconds = 60f;
     public float timeLeft = 25f;
 
     public GameObject cloudSet;
     public GameObject sentTextObj;
+	public GameObject[] darkClouds;
 
     int numberSentences;
     int currSent = 0;
 
     string[] childSentence = {
-        "This is story 1 sentence 1",
-        "This is story 2 sentence 2"
+        "As a child you attend school. There, you surround yourself with _____.",
+		"Everyday after school you _____.",
+		"At home, your life consists of _____."
     };
 
     string[] yaSentence = {
-        "This is story 2 sentence 1",
-        "This is story 2 sentence 2"
+        "In your developing years, you most often _____.",
+		"You decide to go to college. You pick _____ as your major.",
+		"Freshman year has come and gone. In your second year of college you _____.",
+		"After your four years at college you _____."
     };
 
     string[] adultSentence = {
-        "This is story 3 sentence 1",
-        "This is story 3 sentence 2"
+        "Finally gaining more independence, you began to _____ as an adolescent adult.",
+		"As a mature adult, you got into _____.",
+		"_____ enter(s) your life.",
+		"After a couple years at your job you _____."
     };
 
     string[] oldSentence = {
-        "This is story 4 sentence 1",
-        "This is story 4 sentence 2"
+        "Many, many years later, after a long life, in your elderly years you decide to _____."
     };
 
     string[][] allSentences;
@@ -58,20 +63,31 @@ public class SentenceCoordinator : MonoBehaviour
     {
         numberSentences = allSentences[lifeStage].Length;
         timeLeft -= Time.deltaTime;
-        if (timeLeft <= 0)
-        {
-            //switch the sentence to the next sentence
-            TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
-            tochange.text = allSentences[lifeStage][currSent];
-            ChangeWordSet(lifeStage, currSent);
+		if (lifeStage < 3) {
+			if (timeLeft <= 0) {
+				//switch the sentence to the next sentence
+				TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
+				tochange.text = allSentences[lifeStage][currSent];
+				ChangeWordSet(lifeStage, currSent);
 
-            currSent++;
-            if (currSent >= numberSentences)
-            {
-                lifeStage++;
-                timeLeft = waitingSeconds; //reset the timer
-            }
-        }
+				currSent++;
+				if (currSent >= numberSentences)
+				{
+					lifeStage++;
+					timeLeft = waitingSeconds; //reset the timer
+					currSent = 0;
+				}
+			}
+		} else if (lifeStage == 3){
+			//remove all the dark clouds
+			for (int i = 0; i < darkClouds.Length; i++) {
+				darkClouds[i].SetActive(false);
+			}
+			TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
+			tochange.text = allSentences[lifeStage][currSent];
+			ChangeWordSet(lifeStage, currSent);
+		}
+        
 
     }
 
