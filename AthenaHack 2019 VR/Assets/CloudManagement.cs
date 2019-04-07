@@ -20,7 +20,6 @@ public class CloudManagement : MonoBehaviour
 
     public void ChangeWordClouds(int stor, int sent)
     {
-        Debug.Log(stor);
         for (int i = 0; i < clouds.Length; i++)
         {
             string newStory = (stor + 1).ToString();

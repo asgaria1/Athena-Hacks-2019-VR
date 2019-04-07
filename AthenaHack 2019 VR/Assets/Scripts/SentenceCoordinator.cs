@@ -8,16 +8,15 @@ public class SentenceCoordinator : MonoBehaviour
 {
     //0 = Toddler/Child, 1 = Young Adult, 2 = Adult, 3 = Old 
     public int lifeStage = 0;
+	int currSent = 0;
 
-    public float waitingSeconds = 60f;
-    public float timeLeft = 25f;
+
+    public float waitingSeconds = 40f;
+    public float timeLeft = 40f;
 
     public GameObject cloudSet;
     public GameObject sentTextObj;
 	public GameObject[] darkClouds;
-
-    int numberSentences;
-    int currSent = 0;
 
     string[] childSentence = {
         "As a child you attend school. There, you surround yourself with _____.",
@@ -56,42 +55,44 @@ public class SentenceCoordinator : MonoBehaviour
         TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
         tochange.text = allSentences[0][0];
         ChangeWordSet(0, 0);
+		ChangeStuff();
+		StartCoroutine(Timer());
     }
+	
+	IEnumerator Timer() {
+		yield return new WaitForSeconds(waitingSeconds);
+		ChangeStuff();
+	}
+	
+	void ChangeStuff() {
+		Debug.Log(lifeStage + " // " + currSent);
+		int numberSentences = allSentences[lifeStage].Length;
+        if (lifeStage < 3) {
+			//switch the sentence to the next sentence
+			TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
+			tochange.text = allSentences[lifeStage][currSent];
+			ChangeWordSet(lifeStage, currSent);
 
-    // Update is called once per frame
-    void Update()
-    {
-        numberSentences = allSentences[lifeStage].Length;
-        timeLeft -= Time.deltaTime;
-		if (timeLeft <= 0) {
-			if (lifeStage < 2) {
-				//switch the sentence to the next sentence
-				TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
-				tochange.text = allSentences[lifeStage][currSent];
-				ChangeWordSet(lifeStage, currSent);
-
-				currSent++;
-				if (currSent >= numberSentences)
-				{
-					lifeStage++;
-					timeLeft = waitingSeconds; //reset the timer
-					currSent = 0;
-				}
-			} else if (lifeStage == 2){
-				//remove all the dark clouds
-				for (int i = 0; i < darkClouds.Length; i++) {
-					darkClouds[i].SetActive(false);
-				}
-				TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
-				tochange.text = allSentences[lifeStage][currSent];
-				ChangeWordSet(lifeStage, currSent);
+			currSent++;
+			if (currSent >= numberSentences)
+			{
 				lifeStage++;
+				timeLeft = waitingSeconds; //reset the timer
+				currSent = 0;
 			}
+		} else if (lifeStage == 3){
+			//remove all the dark clouds
+			for (int i = 0; i < darkClouds.Length; i++) {
+				darkClouds[i].SetActive(false);
+			}
+			TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
+			tochange.text = allSentences[lifeStage][currSent];
+			ChangeWordSet(lifeStage, currSent);
+			lifeStage++;
 		}
-		
-        
-
-    }
+		StartCoroutine(Timer());
+	}
+	
 
     void ChangeWordSet(int stor, int sent)
     {
@@ -101,8 +102,9 @@ public class SentenceCoordinator : MonoBehaviour
 
     }
 	
-	public void resetTime () {
-		timeLeft = -1f;
+	public void resetTime (GameObject cloudToReset) {
+		StopCoroutine(Timer());
+		ChangeStuff();
 	}
 }
 

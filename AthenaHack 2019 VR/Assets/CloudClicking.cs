@@ -23,6 +23,7 @@ public class CloudClicking : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown (0)) {
+			Debug.Log("Raaaay");
 			RaycastHit hit;
 			Vector3 rayDirection = cameraTransform.TransformDirection(Vector3.forward);
 			Vector3 rayStart = cameraTransform.position + rayDirection;
@@ -30,15 +31,19 @@ public class CloudClicking : MonoBehaviour
 			if(Physics.Raycast(rayStart, rayDirection, out hit, 300.0f)) {
 				if (hit.collider.tag == "Cloud") {
 					GameObject collidedCloud = hit.collider.gameObject;
-					
 					GameObject collidedCloudObj = collidedCloud.transform.GetChild(0).gameObject;
-					Debug.Log(collidedCloudObj);
 					TextMeshPro collidedCloudTMP = collidedCloudObj.GetComponent<TextMeshPro>();
 					string cloudText = collidedCloudTMP.text;
 					sKeeper.GetComponent<Sadlib>().addLine(cloudText);
-					sentenceCoord.GetComponent<SentenceCoordinator>().resetTime();
+					
+					//collidedCloud.SetActive(false);
+					
+					sentenceCoord.GetComponent<SentenceCoordinator>().resetTime(collidedCloud);
+					
 				}
 			}
+			
+		
 			/*RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, 100.0f)) {
