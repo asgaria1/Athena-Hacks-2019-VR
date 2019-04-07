@@ -81,11 +81,11 @@ public class CloudTimer : MonoBehaviour
         tochange.text = GetWord(wholesomeLevel);
     }
 
-    void GetStoryVal(string annieVal)
+    /*void GetStoryVal(string annieVal)
     {
         //Debug.Log(annieVal);
         storyVal = annieVal;
-    }
+    }*/
 
     string GetWord(string wholesome)
     {
@@ -330,6 +330,6 @@ public class CloudTimer : MonoBehaviour
     public void SetStoryVal(string annieVal)
     {
         //Debug.Log(annieVal);
-        storyVal = annieVal;
+        storyVal = annieVal + wholesomeLevel;
     }
 }
