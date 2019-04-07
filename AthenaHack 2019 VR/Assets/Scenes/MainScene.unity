@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -822,9 +822,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 235562577}
-  c: {fileID: 1715445383}
+  c: {fileID: 1756646070}
   timeLeft: 5
   wholesomeLevel: 1
+  storyVal: 
 --- !u!4 &235562580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 832500145789415854, guid: 8f3ca119e50f2cd478752390c22f6698,
@@ -850,9 +851,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 271625151}
-  c: {fileID: 1738126833}
+  c: {fileID: 1586584961}
   timeLeft: 5
   wholesomeLevel: 1
+  storyVal: 
 --- !u!4 &271625154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 832500145789415854, guid: 8f3ca119e50f2cd478752390c22f6698,
@@ -2738,9 +2740,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 1363419721}
-  c: {fileID: 958642911}
+  c: {fileID: 1955903665}
   timeLeft: 5
   wholesomeLevel: 1
+  storyVal: 
 --- !u!4 &1363419724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 832500145789415854, guid: 8f3ca119e50f2cd478752390c22f6698,
@@ -3146,9 +3149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 1490208773}
-  c: {fileID: 375352504}
+  c: {fileID: 1363511870}
   timeLeft: 5
   wholesomeLevel: 1
+  storyVal: 
 --- !u!4 &1490208776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 832500145789415854, guid: 8f3ca119e50f2cd478752390c22f6698,
@@ -3588,9 +3592,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 1593247594}
-  c: {fileID: 1806979175}
+  c: {fileID: 603532605}
   timeLeft: 5
   wholesomeLevel: 0
+  storyVal: 
 --- !u!4 &1593247597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4563203981891428002, guid: 703f6a0c6a4b5d147ba80663bffe547a,
@@ -3892,9 +3897,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 1671395578}
-  c: {fileID: 36059337}
+  c: {fileID: 1280101925}
   timeLeft: 5
   wholesomeLevel: 1
+  storyVal: 
 --- !u!4 &1671395581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 832500145789415854, guid: 8f3ca119e50f2cd478752390c22f6698,
@@ -4522,9 +4528,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 1767950729}
-  c: {fileID: 954695423}
+  c: {fileID: 634491734}
   timeLeft: 5
   wholesomeLevel: 0
+  storyVal: 
 --- !u!4 &1767950732 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4563203981891428002, guid: 703f6a0c6a4b5d147ba80663bffe547a,
@@ -4708,9 +4715,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 1840391122}
-  c: {fileID: 593647116}
+  c: {fileID: 1541921214}
   timeLeft: 5
   wholesomeLevel: 0
+  storyVal: 
 --- !u!4 &1840391125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4563203981891428002, guid: 703f6a0c6a4b5d147ba80663bffe547a,
@@ -4838,6 +4846,7 @@ MonoBehaviour:
   c: {fileID: 44155772}
   timeLeft: 5
   wholesomeLevel: 1
+  storyVal: 
 --- !u!4 &1905844211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 832500145789415854, guid: 8f3ca119e50f2cd478752390c22f6698,
@@ -5268,9 +5277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloud: {fileID: 2086811068}
-  c: {fileID: 1295832968}
+  c: {fileID: 1601808685}
   timeLeft: 5
   wholesomeLevel: 1
+  storyVal: 
 --- !u!4 &2086811071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 832500145789415854, guid: 8f3ca119e50f2cd478752390c22f6698,

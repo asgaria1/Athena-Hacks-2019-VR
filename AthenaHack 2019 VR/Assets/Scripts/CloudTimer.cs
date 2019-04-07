@@ -89,8 +89,8 @@ public class CloudTimer : MonoBehaviour
 
     string GetWord(string wholesome)
     {
-        if (wholesomeLevel == "1") { return dict[storyVal][Random.Range(0, 20)]; }
-        else { return dict[storyVal][Random.Range(0, 8)]; }
+        if (wholesomeLevel == "1") { return dict[storyVal][Random.Range(0, 14)]; }
+        else { return dict[storyVal][Random.Range(0, 4)]; }
     }
 
     void SetStoryOne()
@@ -149,7 +149,7 @@ public class CloudTimer : MonoBehaviour
             "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT",
             "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT",
             "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT",
-            "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT"};
+            "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT", "EVERY MAJOR IS IMPORTANT"};
         dict.Add("221", arrayboi221);
 
         /*string[] arrayboi220 = { "word 1",
