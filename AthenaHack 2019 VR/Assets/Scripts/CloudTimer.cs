@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 
 public class CloudTimer : MonoBehaviour
@@ -16,7 +16,7 @@ public class CloudTimer : MonoBehaviour
     public GameObject c;
 
     [SerializeField]
-    public float timeLeft = 5f;
+    public float timeLeft = 10f;
 
     public string wholesomeLevel;
     private string storyVal;
@@ -47,7 +47,7 @@ public class CloudTimer : MonoBehaviour
 
         //wholesome is  string that is either 0 or 1 for negativity
         storyVal = storyVal + wholesomeLevel;
-        Text tochange = c.GetComponent<Text>();
+        TextMeshPro tochange = c.GetComponent<TextMeshPro>();
 
         //Gets word based on neg or pos since neg has 9 and pos has 21
         //different random ranges.
@@ -74,7 +74,7 @@ public class CloudTimer : MonoBehaviour
     {
         cloud.SetActive(true);
         timeLeft = 5f + buffer;
-        Text tochange = c.GetComponent<Text>();
+        TextMeshPro tochange = c.GetComponent<TextMeshPro>();
         tochange.text = GetWord(wholesomeLevel);
     }
 
@@ -136,7 +136,7 @@ public class CloudTimer : MonoBehaviour
             "word 8", "word 9" };
         dict.Add("130", arrayboi130);
 
-        string[] arrayboi141 = { "word 1",
+        /*string[] arrayboi141 = { "word 1",
             "word 2", "word 3", "word 4",
             "word 5", "word 6", "word 7", "word 8",
             "word 9", "word 10", "word 11", "word 12",
@@ -164,7 +164,7 @@ public class CloudTimer : MonoBehaviour
             "word 2", "word 3", "word 4",
             "word 5", "word 6", "word 7",
             "word 8", "word 9" };
-        dict.Add("150", arrayboi150);
+        dict.Add("150", arrayboi150);*/
 
     }
 
@@ -230,7 +230,7 @@ public class CloudTimer : MonoBehaviour
             "word 8", "word 9" };
         dict.Add("240", arrayboi240);
 
-        string[] arrayboi251 = { "word 1",
+        /*string[] arrayboi251 = { "word 1",
             "word 2", "word 3", "word 4",
             "word 5", "word 6", "word 7", "word 8",
             "word 9", "word 10", "word 11", "word 12",
@@ -243,7 +243,7 @@ public class CloudTimer : MonoBehaviour
             "word 2", "word 3", "word 4",
             "word 5", "word 6", "word 7",
             "word 8", "word 9" };
-        dict.Add("250", arrayboi250);
+        dict.Add("250", arrayboi250);*/
     }
 
     void SetStoryThree()
@@ -308,7 +308,7 @@ public class CloudTimer : MonoBehaviour
             "word 8", "word 9" };
         dict.Add("340", arrayboi340);
 
-        string[] arrayboi351 = { "word 1",
+        /*string[] arrayboi351 = { "word 1",
             "word 2", "word 3", "word 4",
             "word 5", "word 6", "word 7", "word 8",
             "word 9", "word 10", "word 11", "word 12",
@@ -321,7 +321,7 @@ public class CloudTimer : MonoBehaviour
             "word 2", "word 3", "word 4",
             "word 5", "word 6", "word 7",
             "word 8", "word 9" };
-        dict.Add("350", arrayboi350);
+        dict.Add("350", arrayboi350);*/
 
     }
 
@@ -387,7 +387,7 @@ public class CloudTimer : MonoBehaviour
             "word 8", "word 9" };
         dict.Add("440", arrayboi440);
 
-        string[] arrayboi451 = { "word 1",
+        /*string[] arrayboi451 = { "word 1",
             "word 2", "word 3", "word 4",
             "word 5", "word 6", "word 7", "word 8",
             "word 9", "word 10", "word 11", "word 12",
@@ -400,10 +400,10 @@ public class CloudTimer : MonoBehaviour
             "word 2", "word 3", "word 4",
             "word 5", "word 6", "word 7",
             "word 8", "word 9" };
-        dict.Add("450", arrayboi450);
+        dict.Add("450", arrayboi450);*/
     }
 	
-	public void setStoryVal( string annieVal)
+	public void SetStoryVal( string annieVal)
     {
         storyVal = annieVal;
     }

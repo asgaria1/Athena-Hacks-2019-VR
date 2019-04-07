@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SentenceCoordinator : MonoBehaviour
 {
 	//0 = Toddler/Child, 1 = Young Adult, 2 = Adult, 3 = Old 
 	public int lifeStage = 0;
 	
-	public float waitingSeconds = 20f;
-	public float timeLeft = 20f;
+	public float waitingSeconds = 25f;
+	public float timeLeft = 25f;
 	
 	public GameObject cloudSet;
 	public GameObject sentTextObj;
@@ -52,12 +53,13 @@ public class SentenceCoordinator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		numberSentences = allSentences[lifeStage].Length;
 		timeLeft -= Time.deltaTime;
 		if (timeLeft <= 0) {
 			//switch the sentence to the next sentence
-			Text tochange = sentTextObj.GetComponent<Text>();
+			TextMeshPro tochange = sentTextObj.GetComponent<TextMeshPro>();
 			tochange.text = allSentences[lifeStage][currSent];
-			ChangeWordClouds(lifeStage, currSent);
+			ChangeWordSet(lifeStage, currSent);
 			
 			currSent++;
 			if (currSent >= numberSentences) {
@@ -72,11 +74,9 @@ public class SentenceCoordinator : MonoBehaviour
 		yield return new WaitForSeconds(seconds);
 	}
 	
-	void ChangeWordClouds(int stor, int sent) {
-		//send Ari's script a new key
-		string newStory = (stor+1).ToString();
-		newStory = newStory + (sent+1).ToString();
-		cloudSet.GetComponent<CloudTimer>().setStoryVal(newStory);
-		Debug.Log(newStory);
+	void ChangeWordSet(int stor, int sent) {
+		//send to cloud
+		cloudSet.GetComponent<CloudManagement>().ChangeWordClouds(stor, sent);
+		
 	}
 }
