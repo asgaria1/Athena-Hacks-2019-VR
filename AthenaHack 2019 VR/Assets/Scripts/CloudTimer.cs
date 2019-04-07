@@ -406,4 +406,9 @@ public class CloudTimer : MonoBehaviour
         dict.Add("450", arrayboi450);
 
     }
+	
+	public void setStoryVal( string annieVal)
+    {
+        storyVal = annieVal;
+    }
 }
